@@ -34,7 +34,7 @@
                 android:background="?android:selectableItemBackground"
                 android:gravity="left|center"
                 android:textColor="@android:color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:text="Texto de Pruebaa"
                 android:layout_marginLeft="96dp"
                 android:layout_alignBottom="@+id/imageAppointmentBG"

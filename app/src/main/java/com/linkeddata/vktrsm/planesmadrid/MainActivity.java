@@ -1,5 +1,6 @@
 package com.linkeddata.vktrsm.planesmadrid;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -47,6 +48,26 @@ public class MainActivity extends ActionBarActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+    final ProgressDialog progress = ProgressDialog.show(this, "Cargando modelo RDF",
+            "Espera por favor...", true);
+
+    new Thread(new Runnable() {
+      @Override
+      public void run()
+      {
+        ModelProvider modelProvider = new ModelProvider(getApplicationContext());
+
+        runOnUiThread(new Runnable() {
+          @Override
+          public void run()
+          {
+            progress.dismiss();
+          }
+        });
+      }
+    }).start();
+
 
     if (toolbar != null) {
       setSupportActionBar(toolbar);
