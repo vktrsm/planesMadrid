@@ -33,8 +33,7 @@ public class ShopsDAO implements PlaceDAO{
     ArrayList<PlaceDTO> result = new ArrayList<>();
     Resource schema_LocalBusiness = model.createResource(schema + "LocalBusiness");
     ResIterator rIter = this.model.listSubjectsWithProperty(RDF.type,schema_LocalBusiness);
-    while (rIter.hasNext())
-    {
+    while (rIter.hasNext() && result.size() < 10){
       Resource r = rIter.nextResource();
       Property schema_name = this.model.createProperty(schema+"name");
       Property schema_description = this.model.createProperty(schema+"description");

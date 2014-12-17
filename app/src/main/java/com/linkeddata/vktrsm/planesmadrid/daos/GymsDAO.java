@@ -32,8 +32,7 @@ public class GymsDAO implements PlaceDAO{
     ArrayList<PlaceDTO> result = new ArrayList<>();
     Resource mibarrio_SportFacility = model.createResource(mibarrio + "SportFacility");
     ResIterator rIter = this.model.listSubjectsWithProperty(RDF.type,mibarrio_SportFacility);
-    while (rIter.hasNext())
-    {
+    while (rIter.hasNext() && result.size() < 10){
       Resource r = rIter.nextResource();
       Property schema_name = this.model.createProperty(schema+"name");
       Property schema_description = this.model.createProperty(schema+"description");
